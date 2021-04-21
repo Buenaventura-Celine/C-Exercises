@@ -1,0 +1,364 @@
+#include<iostream>
+#include<cstring>
+#include <sstream>
+#include<windows.h>
+using namespace std;
+void gotoxy (int x, int y)
+{
+	COORD coord;
+	coord.X = x;
+	coord.Y = y; 
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+void border()
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 112);
+	cout<<"   __________________________________________________________________________________________________________________________________________________________________"<<endl;
+	cout<<"   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|  "<<endl;
+	cout<<"   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|___|_|_  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |                                                                                                                              |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|                                     _____________________________________________________                                    |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |                                     [............DATA STRUCTURE AND ALGOTITHMS..........]                                    |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|_____________________________________________________________________________________________________________________________ |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |                                                     EXERCISE NO. 2 (FUNCTIONS)                                               |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_| 	                                                                                                                           |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |                                                                                                                              |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|  PROBLEM NO. 4 (Array with function)                                                                                         |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |    In the main function                                                                                                      |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|      a.  Declare and initialize a two-D array of integers containing 10 rows and 10 columns. The diagonal cells that run     |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |          from upper left to lower right contain the integer 1. The other cells contain 0.                                    |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|      b.  Prompt the user to enter a row number and a column number - these will be used below                                |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |      c.  Populate the array as described above using either a for loop or a while loop                                       |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|   Call a function named printArray that will print the contents of the array, 10 numbers per line.Call a function named      |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |   printCol that will print the contents of the col number referenced above, one item per line. Do this using a for or a      |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|   while loop-  and any other structures needed.Call a function named printRow that will print the contents of the row number |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |   referenced above, all on one line with a space between each. Do this using a for or a while loop - and any other           |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|   structures needed.                                                                                                         |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |                                                                                                                              |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|                                                                                                                              |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |                                                                                                                              |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|  PROGRAMMER : BUENAVENTURA, CELINE JOIE V.                                                                                   |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |  YEAR AND SECTION: BS CPE 2-1                                                                                                |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|                                                                                                                              |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |                                                                                                                              |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|                                                                                                                              |  |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|  |______________________________________________________________________________________________________________________________|_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|  |"<<endl;
+	cout<<"   |  |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|"<<endl;
+	cout<<"   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|   |_|  |"<<endl;
+	cout<<"   ------------------------------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+}
+void selection()
+{
+		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(hConsole, 112);
+		gotoxy(5, 20);	cout<<"          =================================="<<endl;
+		gotoxy(5, 21);	cout<<"          [--------------------------------]"<<endl;
+		gotoxy(5, 22);	cout<<"          | Select a variation of array    |"<<endl;
+		gotoxy(5, 23);	cout<<"          | that you want to try:          |"<<endl;
+		gotoxy(5, 24);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 25);	cout<<"          |   [1] ROW	                 |"<<endl;
+		gotoxy(5, 26);	cout<<"          |   [2] COLUMN                   |"<<endl;
+		gotoxy(5, 27);	cout<<"          |   [3] ROW AND COLUMN           |"<<endl;
+		gotoxy(5,28);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 29);	cout<<"          |  Select a number:              |"<<endl;
+		gotoxy(5,30);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 31);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 32);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 33);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 34);	cout<<"          [--------------------------------]"<<endl;
+		gotoxy(5, 35);	cout<<"          =================================="<<endl;
+}
+void rowselection()
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(hConsole, 112);
+		gotoxy(5,30);	cout<<"          |  Enter row number:             |"<<endl;
+		gotoxy(5, 31);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 32);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 33);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 34);	cout<<"          [--------------------------------]"<<endl;
+		gotoxy(5, 35);	cout<<"          =================================="<<endl;
+}
+void columnselection()
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(hConsole, 112);
+		gotoxy(5,30);	cout<<"          |  Enter column number:          |"<<endl;
+		gotoxy(5, 31);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 32);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 33);	cout<<"          |                                |"<<endl;
+		gotoxy(5, 34);	cout<<"          [--------------------------------]"<<endl;
+		gotoxy(5, 35);	cout<<"          =================================="<<endl;
+}
+
+
+
+int main ()
+{
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	border();
+		SetConsoleTextAttribute(hConsole, 124);	
+		gotoxy(23,28);
+		system ("pause");
+		menu:
+		
+		system("cls");
+		SetConsoleTextAttribute(hConsole, 63);	
+		cout<<"   __________________________________________________________________________________________________________________________________________________________________"<<endl;
+		cout<<"                                                                             ARRAY WITH FUNCTIONS                                                                    "<<endl;
+		cout<<"   __________________________________________________________________________________________________________________________________________________________________"<<endl;
+		cout<<endl<<endl;
+		selection();
+		string selection;
+		int s;
+		int checker = 0;
+		int table[11][10];
+		int rowtable [10];
+		int columntable[10];
+		gotoxy(35, 29); getline(cin, selection);
+		if (selection.empty())
+			{
+				SetConsoleTextAttribute(hConsole, 124);
+    			gotoxy(16, 30);cout<<"Invalid input";
+				gotoxy(16,31); system("pause"); system("cls");
+				goto menu;	
+			}
+		else
+			{
+				for (int a=0; a<selection.length(); a++)
+    				{
+        				if (isdigit(selection[a]))
+            					{checker == 0;}
+            			else{checker++;}
+    				}
+    			if (checker!= 0)
+    				{
+    					SetConsoleTextAttribute(hConsole, 124);
+    					gotoxy(16, 30);cout<<"Invalid input";
+						gotoxy(16,31); system("pause"); system("cls");
+						goto menu;
+					}
+				else
+					{
+						stringstream change (selection);
+						change>>s;
+					}
+			}
+		
+		if (s == 1)
+			{
+				SetConsoleTextAttribute(hConsole, 112);
+				rowoption:
+				rowselection();
+				string row;
+				int r, checker = 0;
+				gotoxy(35,30);getline(cin,row);
+	
+				if (row.empty())
+					{
+						SetConsoleTextAttribute(hConsole, 124);
+    					gotoxy(16, 31);cout<<"Invalid input";
+						gotoxy(16,32); system("pause");
+						goto rowoption;	
+					}
+				else
+					{
+						for (int b=0; b<row.length(); b++)
+    						{
+        						if (isdigit(row[b]))
+            					{checker == 0;}
+            					else{checker++;}
+    						}
+    					if (checker!= 0)
+    						{
+    							SetConsoleTextAttribute(hConsole, 124);
+    							gotoxy(16, 31);cout<<"Invalid input";
+								gotoxy(16,32); system("pause");
+								goto rowoption;
+							}
+						else
+							{
+								stringstream change (row);
+								change>>r;
+							}
+					}
+	
+			if (r > 0 && r <= 10)
+				{
+					gotoxy(0, 3+r);cout<<"Row no. "<<r<<": ";
+					int d = 17;	
+					int e =3 + r;
+					for (int c = 0; c < 10; c++)
+						{
+							if(c + 1 == r)
+							{rowtable[c] = 1;}
+							else
+							{rowtable[c] = 0;}
+							gotoxy(d,e);cout<<rowtable[c];
+							d = d + 5;		
+						}
+				}
+			else
+				{
+					
+    				gotoxy(16, 31);cout<<"Invalid input";
+					gotoxy(16,32); system("pause");
+					goto rowoption;	
+				}
+				
+		}
+		
+		
+		else if (s == 2)
+		{
+			SetConsoleTextAttribute(hConsole, 112);
+			columnoption:
+			columnselection();
+			string column;
+			int col, checker = 0;
+			gotoxy(39,30);getline(cin,column);
+			
+			if (column.empty())
+					{
+						SetConsoleTextAttribute(hConsole, 124);
+    					gotoxy(16, 31);cout<<"Invalid input";
+						gotoxy(16,32); system("pause");
+						goto columnoption;	
+					}
+				else
+					{
+						for (int f=0; f<column.length(); f++)
+    						{
+        						if (isdigit(column[f]))
+            					{checker == 0;}
+            					else{checker++;}
+    						}
+    					if (checker!= 0)
+    						{
+    							SetConsoleTextAttribute(hConsole, 124);
+    							gotoxy(16, 31);cout<<"Invalid input";
+								gotoxy(16,32); system("pause");
+								goto columnoption;
+							}
+						else
+							{
+								stringstream change (column);
+								change>>col;
+							}
+					}
+					
+			if (col > 0 && col <= 10)
+				{
+					gotoxy(0, 3);cout<<"Column No ";
+					int f = 10 + (col * 10);
+					gotoxy(f, 3);cout<<col<<": ";
+					int g = 4;
+					for (int h = 0; h < 10; h++)
+						{
+							if(h + 1 == col)
+							{columntable[h] = 1;}
+							else
+							{columntable[h] = 0;}
+							gotoxy(f,g);cout<<columntable[h];
+							g = g + 1;		
+						}
+				}
+			else
+				{
+					SetConsoleTextAttribute(hConsole, 124);
+    				gotoxy(16, 31);cout<<"Invalid input";
+					gotoxy(16,32); system("pause");
+					goto columnoption;	
+				}
+			
+		}
+		
+		else if (s == 3)
+		{
+			rowandcolumnoption:
+			int k = 5;
+			int l = 5;
+			for(int i= 1; i<11; i++)
+				{
+					for (int j = 0; j<10; j++)
+						{
+							if(i - 1 == j){
+							table[i][j] = 1;
+							}
+							
+							else{
+							table[i][j] = 0;
+							}
+							gotoxy(k,l); cout<<table[i][j];
+							k = k + 7;
+						}
+					k = 5;
+					l = l + 1;
+				}
+		}
+		else
+		{
+			SetConsoleTextAttribute(hConsole, 124);
+    		gotoxy(16, 30);cout<<"Invalid input";
+			gotoxy(16,31); system("pause"); system("cls");
+			goto menu;
+		}
+		
+	option:
+	SetConsoleTextAttribute(hConsole, 112);
+	gotoxy (75, 25);cout<<"======================================"<<endl;
+	gotoxy (75, 26);cout<<"|________________OPTION______________|"<<endl;
+	gotoxy (75, 27);cout<<"|                                    |"<<endl;
+	gotoxy (75, 28);cout<<"|   {1}   Try again                  |"<<endl;
+	gotoxy (75, 29);cout<<"|   {2}   Other Array                |"<<endl;
+	gotoxy (75, 30);cout<<"|   {3}   Exit                       |"<<endl;
+	gotoxy (75, 31);cout<<"|   Choose a number :                |"<<endl;
+	gotoxy (75, 32);cout<<"|                                    |"<<endl;
+	gotoxy (75, 33);cout<<"|                                    |"<<endl;
+	gotoxy (75, 34);cout<<"|____________________________________|"<<endl;
+	gotoxy (75, 35);cout<<"======================================"<<endl;
+	string o;
+	gotoxy (100, 31);getline(cin, o);
+	 if ( o == "1")
+	 {if (s == 1)
+		 {goto rowoption;}
+		else if (s == 2)
+		 {goto columnoption;}
+		 else if (s == 3)
+		 {goto rowandcolumnoption;}
+	 }
+	 else if( o == "3")
+	 {
+	 	system("cls");
+							
+							gotoxy (50, 18);cout<<"^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^"<<endl;
+							gotoxy (50, 19);cout<<"^*                           THANK YOU!!!                          *^"<<endl;
+							gotoxy (50, 20);cout<<"^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^"<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
+					
+	 }
+	 else if(o == "2")
+	 {
+	 	goto menu;
+	 }
+	
+	
+	 else
+	 {
+	 	SetConsoleTextAttribute(hConsole, 124);
+	 	gotoxy(79,32); cout<<"INVALID INPUT"<<endl;
+		gotoxy(79,33); system("pause"); 
+		goto option;
+	 }
+	return 0;
+}
+
+
+
+
